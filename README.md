@@ -39,4 +39,4 @@ Once the Aether Script is executed, ``` <AetherScript> ``` Prompt appears, this 
 <h3>Built-In Functions:</h3>
 
 - Write: Write function is used to Execute text syntax through following Command: ``` Write("Hello World") ``` , where Text inside Double-inverted Commas are Executed.
-- Operations: The Aether Terminal 
+- Operations: In the Chamber, you can perform Binary Operations. For Instance, ``` 2*3 ```,``` 1+2```, ```24-12```, ```121/11 ```, And you could even work with Brackets!
