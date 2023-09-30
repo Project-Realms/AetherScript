@@ -12,6 +12,7 @@ So, don't hesitate to dive into the world of Aether Script and embark on your co
 
 <h2>Instructions to Install:</h2>
 <li>Open Terminal in your desired Folder and Clone this Repository.</li>
+<img src="./Images/Clone.gif"  width="500" height="600">
 
 ```
 git clone https://github.com/ProjectDragonRealms/AetherScript.git
