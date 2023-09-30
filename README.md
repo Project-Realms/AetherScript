@@ -24,13 +24,8 @@ git clone https://github.com/ProjectDragonRealms/AetherScript.git
 <ol>- Running through Terminal:</ol>
 Open Terminal in "AetherX" Folder, and execute either one of these Commands:
 
-```
-python3 EmberLaunch.py
-```
+``` python3 EmberLaunch.py ```
 Or
-
-```
-python3 AES.py
-```
+``` python3 AES.py ```
 You could execute Aether Script by opening either "AES.py" or "EmberLaunch.py" in Default Python IDE and pressing F5.
 
