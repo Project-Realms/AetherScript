@@ -11,14 +11,23 @@ With Aether Script, you are encouraged to explore your creativity and realize yo
 So, don't hesitate to dive into the world of Aether Script and embark on your coding journey with confidence. Whether you're crafting a small utility or embarking on a grand project, Aether Script is here to help you turn your ideas into functional and beautiful applications. Embrace the power of Aether Script and unleash your coding potential today.
 
 <h2>Instructions to Install:</h2>
-<li>Open Terminal in your desired Folder and Clone this Repository.</li>
+<ol>Open Terminal in your desired Folder and Clone this Repository.</ol>
 
 ```
 git clone https://github.com/ProjectDragonRealms/AetherScript.git
 ```
-<li>Open the Cloned Folder and Click on "AetherX" folder.</li>
+<ol>Open the Cloned Folder and Click on "AetherX" folder.</ol>
 
 ``` AetherScript >> AetherX ```
 
-<li>Either Run "AES.py" or "EmberLaunch.py" through either Terminal or Python Default IDE.</li>
-<ul>Hi</ul>
+<ol>Either Run "AES.py" or "EmberLaunch.py" through either Terminal or Python Default IDE.</ol>
+<li>- Running through Terminal:</li>
+<ul>Open Terminal in "AetherX" Folder.</ul>
+<ul>Type:</ul>
+```
+python3 EmberLaunch.py
+```
+Or
+```
+python3 AES.py
+```
