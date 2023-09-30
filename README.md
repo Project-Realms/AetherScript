@@ -31,6 +31,12 @@ Or
 <li>Once Opened, enjoy your Time Developing!</li>
 
 <h2>Documentations:</h2>
+<h3>Aether Terminal - Chamber</h3>
+
+Once the Aether Script is executed, ``` <AetherScript> ``` Prompt appears, this is where you work with the Script. And this work area is known as a Aether Chamber.
+
+
 <h3>Built-In Functions:</h3>
 
 - Write: Write function is used to Execute text syntax through following Command: ``` Write("Hello World") ``` , where Text inside Double-inverted Commas are Executed.
+- Operations: The Aether Terminal 
