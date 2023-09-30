@@ -16,3 +16,5 @@ So, don't hesitate to dive into the world of Aether Script and embark on your co
 ```
 git clone https://github.com/ProjectDragonRealms/AetherScript.git
 ```
+<li>Open the Cloned Folder and Click on "Aether Script" folder.</li>
+<li></li>
