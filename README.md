@@ -51,3 +51,10 @@ Once the Aether Script is executed, ``` <AetherScript> ``` Prompt appears, this 
 - Function: ```Function``` command is used to  declare a Function i.e. a Prefix, Element or a Character. (Partially Developed)
 - Variable: ```Variable``` function is used to declare a value for further usage. (Under Development)
 - Run: ``` Run ``` Function can be used to executes a ```.aes``` file, that is - AetherScript Format file. A Aetherscript format file can be executed by ```Run("FILENAME.aes")``` command in Chamber.
+
+<h3>Writing a separate AetherScript:</h3>
+
+1. Open your IDE or a Default Text Editor.
+2. Write your Aether Script prompt.
+3. Save it as a ```.aes``` format file.
+4. Open "AES.py" or "EmberLaunch.py" to get into Aether Chamber, then Use the ```Run``` function to execute the AetherScript. That is, ```<AetherScript> Run("FILENAME.aes")```
