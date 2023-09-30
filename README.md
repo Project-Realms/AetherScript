@@ -4,4 +4,3 @@
 <h4 align="center"><i>
   A Computer Manuscript
 </i></h4>
-<br>
