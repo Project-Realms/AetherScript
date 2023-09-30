@@ -20,4 +20,5 @@ git clone https://github.com/ProjectDragonRealms/AetherScript.git
 
 ``` AetherScript >> AetherX ```
 
-<li></li>
+<li>Either Run "AES.py" or "EmberLaunch.py" through either Terminal or Python Default IDE.</li>
+<ul>Hi</ul>
