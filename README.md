@@ -32,4 +32,5 @@ Or
 ```
 python3 AES.py
 ```
+You could execute Aether Script by opening either "AES.py" or "EmberLaunch.py" in Default Python IDE and pressing F5.
 
