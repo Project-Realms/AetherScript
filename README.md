@@ -58,3 +58,26 @@ Once the Aether Script is executed, ``` <AetherScript> ``` Prompt appears, this 
 2. Write your Aether Script prompt.
 3. Save it as a ```.aes``` format file.
 4. Open "AES.py" or "EmberLaunch.py" to get into Aether Chamber, then Use the ```Run``` function to execute the AetherScript. That is, ```<AetherScript> Run("FILENAME.aes")```
+
+<h3>An Example:</h3>
+
+```
+Write("Hello World")
+
+~ This is a Comment and now we will find Circumference of Circle i.e 2πr with 10cm as Radius
+
+Write(2*MathPi*10)
+
+~ Now we will perform a Binary Operation
+
+Write(2*6.42*24/12*2+100)
+```
+Result:
+```
+<AetherScript> Run("Aether.aes")
+Hello World
+62.83185307179586
+151.35999999999999
+0
+<AetherScript>
+```
