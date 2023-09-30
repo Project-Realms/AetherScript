@@ -21,7 +21,7 @@ git clone https://github.com/ProjectDragonRealms/AetherScript.git
 ``` AetherScript >> AetherX ```
 
 <li>Either Run "AES.py" or "EmberLaunch.py" through either Terminal or Python Default IDE.</li>
-<ol>Running through Terminal:</ol>
+<ol>- Running through Terminal:</ol>
 Open Terminal in "AetherX" Folder, and execute either one of these Commands:
 
 ```
@@ -33,5 +33,5 @@ Or
 python3 AES.py
 ```
 
-<ol>Running through Default Python IDE</ol>
+<ol>- Running through Default Python IDE:</ol>
 Open either "AES.py" or "EmberLaunch.py" in Python IDE and Press F5 to run the Script.
