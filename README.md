@@ -32,3 +32,6 @@ Or
 ```
 python3 AES.py
 ```
+
+<ul>Running through Default Python IDE</ul>
+Open either "AES.py" or "EmberLaunch.py" in Python IDE and Press F5 to run the Script.
