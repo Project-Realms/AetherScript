@@ -21,9 +21,8 @@ git clone https://github.com/ProjectDragonRealms/AetherScript.git
 ``` AetherScript >> AetherX ```
 
 <li>Either Run "AES.py" or "EmberLaunch.py" through either Terminal or Python Default IDE.</li>
-- Running through Terminal:</ul>
-Open Terminal in "AetherX" Folder.
-Type:
+<ul>Running through Terminal:</ul>
+Open Terminal in "AetherX" Folder, and execute either one of these Commands:
 
 ```
 python3 EmberLaunch.py
