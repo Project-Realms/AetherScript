@@ -33,5 +33,4 @@ Or
 <h2>Documentations:</h2>
 <h3>Built-In Functions:</h3>
 
-
-- Hello
+- Write: Write function is used to Execute text syntax through following Command: ``` Write("Hello World") ``` , where Text inside Double-inverted Commas are Executed.
