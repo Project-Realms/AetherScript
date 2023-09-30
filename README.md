@@ -18,8 +18,6 @@ git clone https://github.com/ProjectDragonRealms/AetherScript.git
 ```
 <li>Open the Cloned Folder and Click on "AetherX" folder.</li>
 
-```
-AetherScript >> AetherX
-```
+``` AetherScript >> AetherX ```
 
 <li></li>
