@@ -39,4 +39,15 @@ Once the Aether Script is executed, ``` <AetherScript> ``` Prompt appears, this 
 <h3>Built-In Functions:</h3>
 
 - Write: Write function is used to Execute text syntax through following Command: ``` Write("Hello World") ``` , where Text inside Double-inverted Commas are Executed.
-- Operations: In the Chamber, you can perform Binary Operations. For Instance, ``` 2*3 ```,``` 1+2```, ```24-12```, ```121/11 ```, And you could even work with Brackets!
+- Operations: In the Chamber, you can perform Binary Operations i.e Addition, Substraction, Multipliation and Division.. For Instance, ``` 2*3 ```,``` 1+2```, ```24-12```, ```121/11 ```, And you could even work with Brackets!
+- Null: A Function having no Value.
+- True and False: Declaring Conditions with True and False Functions (Under Development)
+- Mathematical Symbols and Values: Symbols like less than ```<``` and greater than ```>``` help in Classification of values of Variables and comparing them. ``` ! ``` is characterised as Not Equal to symbol. Values like ```MathPi``` can be used to calculate certain things. Execution of ```MathPi``` Function in Chamber gives Value of π
+- Strings: In Aether Script, String can be declared by ``` " ``` Symbol infront of Character. (Can be used for single Character - Under Development.)
+- Comments: In Aether Script, comments can be added in Script by ``` ~ ``` symbol. (Single line Comment)
+- Decimal: In Numeric Values, Decimal point ``` . ``` can be added and perform Operations.
+- NewLine: New line can be added by ```->``` function to classify the code.
+- Classification of Characters: Aether Script classifies the code into Illegal and Accurate Values. Error in Code will be informed to revise it. Any misplaced character is often suggested to correct.
+- Function: ```Function``` command is used to  declare a Function i.e. a Prefix, Element or a Character. (Partially Developed)
+- Variable: ```Variable``` function is used to declare a value for further usage. (Under Development)
+- Run: ``` Run ``` Function can be used to executes a ```.aes``` file, that is - AetherScript Format file. A Aetherscript format file can be executed by ```Run("FILENAME.aes")``` command in Chamber.
