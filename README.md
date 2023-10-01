@@ -88,6 +88,7 @@ Hello World
 
 <h2>Updates and Development</h2>
 We are pleased to inform you that Aether Script will be regularly updated for the community with the assistance of the community. Issues and suggestions are welcomed in order to be helpful to humanity. Special Thanks to <a href="https://david.callanan.ie/">David Callanan - Code Pulse</a> for the Theory!
+<br>
 Regards, 
 <br>
 Aryan Gore - CEO and Founder
