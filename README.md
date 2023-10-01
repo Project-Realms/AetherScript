@@ -4,6 +4,10 @@
 <h4 align="center"><i>
   A Computer Manuscript
 </i></h4>
+
+![](Banner.png)
+
+
 <br>
 Aether Script is a dynamic and user-friendly programming language based on Python. Designed with a primary focus on facilitating seamless application development, aimed at enhancing the coding experience and empowering individuals to bring their creative projects to life. With its unique capabilities and multiple workflows, Aether Script provides a wide platform for developers and enthusiasts alike to express their ideas and transform them into reality.
 One of the standout characteristics of Aether Script is its commitment to promoting fluid and effortless coding. The language is meticulously crafted to simplify the programming process, making it accessible to both beginners and experienced developers. Whether you are embarking on your coding journey or honing your skills, Aether Script ensures that you can craft code with ease and precision. Aether Script's approach allows individuals to tailor their development experience according to their specific project requirements. These workflows offer a variety of tools and libraries, enabling you to choose the most suitable environment for your project and adapt as your project evolves.
