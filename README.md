@@ -91,3 +91,4 @@ We are pleased to inform you that Aether Script will be regularly updated for th
 <br>
 Regards, Aryan Gore - CEO and Founder
 <h3 align = 'center'>© Realms - Aryan Gore</h3>
+Speacial Thanks to <a href="https://david.callanan.ie/">David Callanan - Code Pulse</a> for the Theory!
