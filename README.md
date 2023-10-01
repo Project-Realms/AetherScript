@@ -85,6 +85,7 @@ Hello World
 0
 <AetherScript>
 ```
-
 <hr>
+<h2>Updates and Development</h2>
+We are pleased to inform you that Aether Script will be regularly updated for the community with the assistance of the community. Issues and suggestions are welcomed in order to be helpful to humanity. Regards, Aryan Gore - CEO and Founder
 <h3 align = 'center'>© Realms - Aryan Gore</h3>
