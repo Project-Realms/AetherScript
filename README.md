@@ -14,11 +14,7 @@ One of the standout characteristics of Aether Script is its commitment to promot
 With Aether Script, you are encouraged to explore your creativity and realize your vision without unnecessary barriers. The language promotes a collaborative and inclusive development community, where programmers can share their knowledge, exchange ideas, and seek assistance when needed. Aether Script's user-friendly interface and extensive documentation make it an ideal choice for those seeking a welcoming and supportive programming ecosystem.
 So, don't hesitate to dive into the world of Aether Script and embark on your coding journey with confidence. Whether you're crafting a small utility or embarking on a grand project, Aether Script is here to help you turn your ideas into functional and beautiful applications. Embrace the power of Aether Script and unleash your coding potential today.
 
-
-
-[![Watch Aether Script Trailer(https://img.youtube.com/vi/https:/g3nfbS-Ng70/0.jpg)](https://youtu.be/g3nfbS-Ng70)
-
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/g3nfbS-Ng70?si=do1xcjbKWNAARyfs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <h2>Instructions to Install:</h2>
 <li>Open Terminal in your desired Folder and Clone this Repository.</li>
