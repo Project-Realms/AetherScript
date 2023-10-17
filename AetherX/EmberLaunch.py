@@ -1,2 +1,4 @@
 import AES
-AES.run
+
+if __name__ == '__main__':
+	AES.run
