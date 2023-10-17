@@ -9,6 +9,7 @@ setup(
 	url='https://github.com/ProjectDragonRealms/AetherScript',
 	author='Realms',
 	author_email='dragonrealms2008@gmail.com',
+	packages=['AetherX'],
 	include_package_data=True,
 	license='MIT',
 	setup_requires=['pytest_runner'],
