@@ -1,98 +1,109 @@
-<h1 align="center">
-  Welcome to Aether Script.
-</h1>
-<h4 align="center"><i>
-  A Computer Manuscript
-</i></h4>
+<div align="center">
 
-![](Banner.png)
+![](branding/banner.svg "AetherScript")
+### Enhance Your Coding Experience
 
+</div>
 
+---
 
-Aether Script is a dynamic and user-friendly programming language based on Python. Designed with a primary focus on facilitating seamless application development, aimed at enhancing the coding experience and empowering individuals to bring their creative projects to life. With its unique capabilities and multiple workflows, Aether Script provides a wide platform for developers and enthusiasts alike to express their ideas and transform them into reality.
-One of the standout characteristics of Aether Script is its commitment to promoting fluid and effortless coding. The language is meticulously crafted to simplify the programming process, making it accessible to both beginners and experienced developers. Whether you are embarking on your coding journey or honing your skills, Aether Script ensures that you can craft code with ease and precision. Aether Script's approach allows individuals to tailor their development experience according to their specific project requirements. These workflows offer a variety of tools and libraries, enabling you to choose the most suitable environment for your project and adapt as your project evolves.
-With Aether Script, you are encouraged to explore your creativity and realize your vision without unnecessary barriers. The language promotes a collaborative and inclusive development community, where programmers can share their knowledge, exchange ideas, and seek assistance when needed. Aether Script's user-friendly interface and extensive documentation make it an ideal choice for those seeking a welcoming and supportive programming ecosystem.
-So, don't hesitate to dive into the world of Aether Script and embark on your coding journey with confidence. Whether you're crafting a small utility or embarking on a grand project, Aether Script is here to help you turn your ideas into functional and beautiful applications. Embrace the power of Aether Script and unleash your coding potential today.
-<br>
-<a href="https://www.youtube.com/embed/g3nfbS-Ng70?si=do1xcjbKWNAARyfs">Watch Aether Script Trailer</a>
+## Introduction
 
-<h2>Instructions to Install:</h2>
-<li>Open Terminal in your desired Folder and Clone this Repository.</li>
+AetherScript is a dynamic and user-friendly programming language based on Python, designed to facilitate seamless application development and enhance the coding experience. It is accessible to both beginners and experienced developers, with a variety of features and workflows to choose from. AetherScript promotes creativity and collaboration, providing an ideal environment for developers to bring their ideas to life.
 
+---
+
+## Installation (in 3 steps)
+
+1. Open a terminal in your desired folder, then clone this repository.
+
+```sh
+$ git clone https://github.com/ProjectDragonRealms/AetherScript.git
 ```
-git clone https://github.com/ProjectDragonRealms/AetherScript.git
+
+2. Navigate to the `AetherX` folder.
+
+```sh
+$ cd AetherScript/AetherX
 ```
-<li>Open the Cloned Folder and Click on "AetherX" folder.</li>
 
-``` AetherScript >> AetherX ```
+3. Run either `AES.py` or `EmberLaunch.py`.
 
-<li>Either Run "AES.py" or "EmberLaunch.py" through either Terminal or Python Default IDE.</li>
 Open Terminal in "AetherX" Folder, and execute either one of these Commands:
 
-``` python3 EmberLaunch.py ```
-Or
-``` python3 AES.py ```
-, You could execute Aether Script by opening either "AES.py" or "EmberLaunch.py" in Default Python IDE and pressing F5.
+```sh
+$ python3 EmberLaunch.py
+	# or
+$ python3 AES.py
+```
 
-<li>Once Opened, enjoy your Time Developing!</li>
+---
 
-<h2>Documentations:</h2>
-<h3>Aether Terminal - Chamber</h3>
+## Documentation
 
-Once the Aether Script is executed, ``` <AetherScript> ``` Prompt appears, this is where you work with the Script. And this work area is known as a Aether Chamber.
+### Aether Chambers
 
+Once AetherScript is activated, the `<AetherScript>` prompt appears. This is the AetherScript workspace, known as an Aether Chamber.
 
-<h3>Built-In Functions:</h3>
+### Built-in functions
 
-- Write: Write function is used to Execute text syntax through following Command: ``` Write("Hello World") ``` , where Text inside Double-inverted Commas are Executed.
-- Operations: In the Chamber, you can perform Binary Operations i.e Addition, Substraction, Multipliation and Division.. For Instance, ``` 2*3 ```,``` 1+2```, ```24-12```, ```121/11 ```, And you could even work with Brackets!
-- Null: A Function having no Value.
-- True and False: Declaring Conditions with True and False Functions (Under Development)
-- Mathematical Symbols and Values: Symbols like less than ```<``` and greater than ```>``` help in Classification of values of Variables and comparing them. ``` ! ``` is characterised as Not Equal to symbol. Values like ```MathPi``` can be used to calculate certain things. Execution of ```MathPi``` Function in Chamber gives Value of π
-- Strings: In Aether Script, String can be declared by ``` " ``` Symbol infront of Character. (Can be used for single Character - Under Development.)
-- Comments: In Aether Script, comments can be added in Script by ``` ~ ``` symbol. (Single line Comment)
-- Decimal: In Numeric Values, Decimal point ``` . ``` can be added and perform Operations.
-- NewLine: New line can be added by ```->``` function to classify the code.
-- Classification of Characters: Aether Script classifies the code into Illegal and Accurate Values. Error in Code will be informed to revise it. Any misplaced character is often suggested to correct.
-- Function: ```Function``` command is used to  declare a Function i.e. a Prefix, Element or a Character. (Partially Developed)
-- Variable: ```Variable``` function is used to declare a value for further usage. (Under Development)
-- Run: ``` Run ``` Function can be used to executes a ```.aes``` file, that is - AetherScript Format file. A Aetherscript format file can be executed by ```Run("FILENAME.aes")``` command in Chamber.
+| Feature | Description | Example/s |
+|:-:|:--|:--|
+| Binary operations | Binary operations are supported (addition, subtraction, multiplication, and division). | `2*3`, `1+2`, `24-12`, `121/11` |
+| Booleans | Declaring conditions with the `True` and `False` keywords | (Under Development) |
+| Comments | AetherScript comments are signified by a tilde (`~`). (Single line Comments) | `~ This is a comment` |
+| Comparisons | Symbols like `<` and `>` help to classify values of variables and compare them. `!=` means "not equal to". Values like `MathPi` can be used in calculations. Execution of `MathPi` gives the value of π. | `2<3`, `3>2`, `2!=3`, `MathPi` |
+| Decimals | Decimal point numeric values can be operated on | `2.5*3.2` |
+| Error handling | AetherScript classifies code into "legal" and "illegal" values. AetherScript will offer suggestions on how to fix misplaced characters. | |
+| Function | The `Function` command is used to declare a function prefix, element, or character. | (Partially Developed) |
+| Newlines | Newlines can be added with the `->` function. | (Under Development) |
+| Null values | A constant having no value. | |
+| Output | The `Write` function is used to display text. | `Write("Hello World")` |
+| Run | The `Run` function can be used to execute a `.aes` file. | `Run("FILENAME.aes")`|
+| Strings | Strings can be declared by with double quotes (`"`). | (Under Development) |
+| Variables | The `Variable` function is used to declare a value for further usage. | (Under Development) |
 
-<h3>Writing a separate AetherScript:</h3>
+### Writing programs in AetherScript (in 3 steps)
 
-1. Open your IDE or a Default Text Editor.
-2. Write your Aether Script prompt.
-3. Save it as a ```.aes``` format file.
-4. Open "AES.py" or "EmberLaunch.py" to get into Aether Chamber, then Use the ```Run``` function to execute the AetherScript. That is, ```<AetherScript> Run("FILENAME.aes")```
+1. Open your IDE and write your AetherScript prompt.
+2. Save it as a `.aes` file.
+3. Run the Aether Chamber, then use the `Run` function to execute the program.
 
-<h3>An Example:</h3>
+### Example program
 
 ```
 Write("Hello World")
 
-~ This is a Comment and now we will find Circumference of Circle i.e 2πr with 10cm as Radius
-
+~ find the circumference of a circle with a radius of using the formula "C = 2πr"
 Write(2*MathPi*10)
 
-~ Now we will perform a Binary Operation
-
+~ binary operations
 Write(2*6.42*24/12*2+100)
 ```
-Result:
+
+This program will output the following:
+
 ```
-<AetherScript> Run("Aether.aes")
+<AetherScript> Run("example.aes")
 Hello World
 62.83185307179586
 151.35999999999999
 0
-<AetherScript>
 ```
 
-<h2>Updates and Development</h2>
-We are pleased to inform you that Aether Script will be regularly updated for the community with the assistance of the community. Issues and suggestions are welcomed in order to be helpful to humanity. Special Thanks to <a href="https://david.callanan.ie/">David Callanan - Code Pulse</a> for the Theory!
-<br>
-Regards, 
-<br>
-Aryan Gore - CEO and Founder
+---
 
-<h3 align = 'center'>© Realms - Aryan Gore</h3>
+## Updates and development
+AetherScript will be regularly updated, and community assistance is appreciated. Issues and pull requests are welcomed!
+
+---
+
+<div align="center">
+
+### © Realms - [MIT License](https://github.com/ProjectDragonRealms/AetherScript?tab=MIT-1-ov-file)
+Special thanks to [David Callanan](https://david.callanan.ie/) for the theory.
+
+</div>
+
+---
+``
