@@ -118,9 +118,9 @@ AetherScript will be regularly updated, and community assistance is appreciated.
 <div align="center">
 
 ### © Realms - [MIT License](https://github.com/ProjectDragonRealms/AetherScript?tab=MIT-1-ov-file)
+
 Special thanks to [David Callanan](https://david.callanan.ie/) for the theory.
 
 </div>
 
 ---
-``
