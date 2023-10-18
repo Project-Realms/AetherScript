@@ -13,12 +13,6 @@ AetherScript is a dynamic and user-friendly programming language based on Python
 
 ---
 
-## Temporary note
-
-The following tutorial is somewhat outdated. You can still follow it, but AetherScript will soon be released as a Python library. This means that you will be able to use AetherScript in your own Python projects, and you will no longer need to run the Aether Chamber to execute AetherScript code. The Aether Chamber will still be available for those who prefer to use it.
-
----
-
 ## Installation (in 3 steps)
 
 1. Open a terminal in your desired folder, then clone this repository.
@@ -27,20 +21,35 @@ The following tutorial is somewhat outdated. You can still follow it, but Aether
 $ git clone https://github.com/ProjectDragonRealms/AetherScript.git
 ```
 
-2. Navigate to the `aether` folder.
+2. Navigate to the `AetherX` folder.
 
 ```sh
-$ cd AetherScript/aether
+$ cd AetherScript/AetherX
 ```
 
 3. Run either `AES.py` or `EmberLaunch.py`.
 
-Open Terminal in `aether` Folder, and execute either one of these Commands:
+Open Terminal in `AetherX` Folder, and execute either one of these Commands:
 
 ```sh
-$ python3 EmberLaunch.py
+$ py EmberLaunch.py
 	# or
-$ python3 AES.py
+$ py AES.py
+```
+
+### `AetherX` library
+
+Additionally, you can use AetherScript in Python with the `AetherX` library.
+
+```sh
+$ py -m pip install --upgrade AetherX
+$ py
+```
+
+```py
+>>> from AetherX import AES
+>>> AES.run
+<AetherScript> _
 ```
 
 ---

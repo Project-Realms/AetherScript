@@ -3,7 +3,7 @@ version = '0.0.1'
 from setuptools import setup
 
 setup(
-	name='aether',
+	name='AetherX',
 	version='1.0.0',
 	description='The AetherScript programming language',
 	long_description=open('README.md', 'r').read(),
@@ -13,7 +13,7 @@ setup(
 	author_email='dragonrealms2008@gmail.com',
 	include_package_data=True,
 	license='MIT',
-	packages=['aether'],
+	packages=['AetherX'],
 	setup_requires=['pytest_runner'],
 	scripts=[],
 	tests_require=['pytest'],
