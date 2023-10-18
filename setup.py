@@ -1,22 +1,19 @@
 version = '0.0.1'
 
-import os, setuptools, sys
+from setuptools import setup
 
-setuptools.setup(
-	name='AetherX',
-	version=version,
+setup(
+	name='aether',
+	version='1.0.0',
 	description='The AetherScript programming language',
-	long_description=open(
-		os.path.join(
-			sys.path[0], 'README.md'
-		), 'tr'
-	).read(),
+	long_description=open('README.md', 'r').read(),
+	long_description_content_type='text/markdown',
 	url='https://github.com/ProjectDragonRealms/AetherScript',
 	author='Realms',
 	author_email='dragonrealms2008@gmail.com',
-	packages=['AetherX'],
 	include_package_data=True,
 	license='MIT',
+	packages=['aether'],
 	setup_requires=['pytest_runner'],
 	scripts=[],
 	tests_require=['pytest'],
