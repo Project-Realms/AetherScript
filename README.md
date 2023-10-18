@@ -11,12 +11,12 @@
 
 </div>
 
+---
 
 ## Introduction
 
 AetherScript is a dynamic and user-friendly programming language based on Python, designed to facilitate seamless application development and enhance the coding experience. It is accessible to both beginners and experienced developers, with a variety of features and workflows to choose from. AetherScript promotes creativity and collaboration, providing an ideal environment for developers to bring their ideas to life.
 
----
 
 ## Installation
 
