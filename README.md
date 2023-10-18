@@ -3,6 +3,11 @@
 ![](branding/banner.svg "AetherScript")
 ### Enhance Your Coding Experience
 
+<!--
+[![test](https://github.com/ProjectDragonRealms/AetherScript/actions/workflows/python-app.yml/badge.svg)](https://github.com/ProjectDragonRealms/AetherScript/actions/workflows/python-app.yml)
+[![publish](https://github.com/ProjectDragonRealms/AetherScript/actions/workflows/python-publish.yml/badge.svg)](https://github.com/ProjectDragonRealms/AetherScript/actions/workflows/python-publish.yml)
+-->
+
 </div>
 
 ---
