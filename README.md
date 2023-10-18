@@ -40,7 +40,8 @@ $ cd AetherScript/AetherX
 ```sh
 $ py EmberLaunch.py
 ```
-*Voila!* You have successfully installed Aether Script.
+
+*Voila!* You have successfully installed AetherScript, and can now start coding!
 
 ### `AetherX` library
 
