@@ -1,4 +1,4 @@
-import AESx64
+from . import AESx64
 
 def run():
 	while True:

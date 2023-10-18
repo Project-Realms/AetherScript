@@ -1,5 +1,5 @@
-from functions import string_with_arrows
-from errors import AetherScriptError
+from .functions import string_with_arrows
+from .errors import AetherScriptError
 
 import string
 import os

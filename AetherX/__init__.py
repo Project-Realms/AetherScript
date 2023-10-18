@@ -1,1 +1,1 @@
-import AES
+from . import AES

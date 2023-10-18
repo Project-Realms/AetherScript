@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
 	name='AetherX',
-	version='1.0.0',
+	version=version,
 	description='The AetherScript programming language',
 	long_description=open('README.md', 'r').read(),
 	long_description_content_type='text/markdown',
