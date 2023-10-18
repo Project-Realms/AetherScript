@@ -27,14 +27,10 @@ $ git clone https://github.com/ProjectDragonRealms/AetherScript.git
 $ cd AetherScript/AetherX
 ```
 
-3. Run either `AES.py` or `EmberLaunch.py`.
-
-Open Terminal in `AetherX` Folder, and execute either one of these Commands:
+1. Run `EmberLaunch.py`.
 
 ```sh
 $ py EmberLaunch.py
-	# or
-$ py AES.py
 ```
 
 ### `AetherX` library
@@ -48,7 +44,7 @@ $ py
 
 ```py
 >>> from AetherX import AES
->>> AES.run
+>>> AES.run()
 <AetherScript> _
 ```
 

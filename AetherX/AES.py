@@ -1,6 +1,6 @@
 import AESx64
 
-if __name__ == '__main__':
+def run():
 	while True:
 		text = input('<AetherScript> ')
 		if text.strip() == "": continue
@@ -13,3 +13,6 @@ if __name__ == '__main__':
 				print(repr(result.elements[0]))
 			else:
 				print(repr(result))
+
+if __name__ == '__main__':
+	run()
