@@ -20,9 +20,8 @@
 
 AetherScript is a dynamic and user-friendly programming language based on Python, designed to facilitate seamless application development and enhance the coding experience. It is accessible to both beginners and experienced developers, with a variety of features and workflows to choose from. AetherScript promotes creativity and collaboration, providing an ideal environment for developers to bring their ideas to life.
 
----
 
-## Installation (in 3 steps)
+## Installation
 
 1. Open a terminal in your desired folder, then clone this repository.
 
@@ -36,11 +35,12 @@ $ git clone https://github.com/ProjectDragonRealms/AetherScript.git
 $ cd AetherScript/AetherX
 ```
 
-1. Run `EmberLaunch.py`.
+3. Run `EmberLaunch.py`.
 
 ```sh
 $ py EmberLaunch.py
 ```
+*Voila!* You have successfully installed Aether Script.
 
 ### `AetherX` library
 
