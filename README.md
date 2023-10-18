@@ -1,6 +1,9 @@
+
+---
+
 <div align="center">
 
-![](branding/banner.svg "AetherScript")
+![AetherScript](https://raw.githubusercontent.com/ProjectDragonRealms/AetherScript/main/branding/banner.svg)
 ### Enhance Your Coding Experience
 
 <!--
