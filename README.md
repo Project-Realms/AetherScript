@@ -4,8 +4,9 @@
 ### Enhance Your Coding Experience
 
 <!--
-[![test](https://github.com/ProjectDragonRealms/AetherScript/actions/workflows/python-app.yml/badge.svg)](https://github.com/ProjectDragonRealms/AetherScript/actions/workflows/python-app.yml)
-[![publish](https://github.com/ProjectDragonRealms/AetherScript/actions/workflows/python-publish.yml/badge.svg)](https://github.com/ProjectDragonRealms/AetherScript/actions/workflows/python-publish.yml)
+[![publish status](https://github.com/ProjectDragonRealms/AetherScript/actions/workflows/python-publish.yml/badge.svg)](https://github.com/ProjectDragonRealms/AetherScript/actions/workflows/python-publish.yml)
+![[latest release](https://github.com/ProjectDragonRealms/AetherScript/releases/latest)](https://img.shields.io/github/v/release/ProjectDragonRealms/AetherScript)
+
 -->
 
 </div>
