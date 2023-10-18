@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: AetherScript
+name: publish
 
 on:
   release:
@@ -18,7 +18,7 @@ permissions:
 jobs:
   deploy:
 
-    runs-on: All
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -36,4 +36,4 @@ jobs:
       uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:
         user: __token__
-        password: ${{ secrets.pypi-AgEIcHlwaS5vcmcCJGFlMGUyODIwLTBlOTEtNDIxMy05MjUxLWM5MDQ5YzAxZTZmNgACKlszLCI3YTRkMjUxOS00ZGFiLTRmYzQtODc4NS1jZjBjZDQwYTNiNTkiXQAABiDCIW5WTtMdmyOA7JSqZ5MaK-uuXwDkNApUyvJfD3uT_g }}
+        password: ${{ secrets.PYPI_API_TOKEN }}
