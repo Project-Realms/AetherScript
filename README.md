@@ -4,13 +4,11 @@
 <div align="center">
 
 ![AetherScript](https://raw.githubusercontent.com/ProjectDragonRealms/AetherScript/main/branding/banner.svg)
-### Enhance Your Coding Experience
 
-<!--
 [![publish status](https://github.com/ProjectDragonRealms/AetherScript/actions/workflows/python-publish.yml/badge.svg)](https://github.com/ProjectDragonRealms/AetherScript/actions/workflows/python-publish.yml)
 ![[latest release](https://github.com/ProjectDragonRealms/AetherScript/releases/latest)](https://img.shields.io/github/v/release/ProjectDragonRealms/AetherScript)
 
--->
+### Enhance Your Coding Experience
 
 </div>
 
@@ -19,7 +17,6 @@
 ## Introduction
 
 AetherScript is a dynamic and user-friendly programming language based on Python, designed to facilitate seamless application development and enhance the coding experience. It is accessible to both beginners and experienced developers, with a variety of features and workflows to choose from. AetherScript promotes creativity and collaboration, providing an ideal environment for developers to bring their ideas to life.
-
 
 ## Installation
 
