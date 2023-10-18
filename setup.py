@@ -1,11 +1,11 @@
-version = '0.0.1'
+version = '0.1'
 
 from setuptools import setup
 
 setup(
 	name='AetherX',
 	version=version,
-	description='The AetherScript programming language',
+	description='The AetherScript Programming Language',
 	long_description=open('README.md', 'r').read(),
 	long_description_content_type='text/markdown',
 	url='https://github.com/ProjectDragonRealms/AetherScript',
