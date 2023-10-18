@@ -19,7 +19,7 @@ AetherScript is a dynamic and user-friendly programming language based on Python
 
 ---
 
-## Installation (in 3 steps)
+## Installation
 
 1. Open a terminal in your desired folder, then clone this repository.
 
