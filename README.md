@@ -32,11 +32,12 @@ $ git clone https://github.com/ProjectDragonRealms/AetherScript.git
 $ cd AetherScript/AetherX
 ```
 
-1. Run `EmberLaunch.py`.
+3. Run `EmberLaunch.py`.
 
 ```sh
 $ py EmberLaunch.py
 ```
+*Voila!* You have successfully installed Aether Script.
 
 ### `AetherX` library
 
