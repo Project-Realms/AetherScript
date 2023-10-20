@@ -9,14 +9,13 @@ Constants = '0123456789'
 LETTERS = string.ascii_letters
 LETTERS_DIGITS = LETTERS + Constants
 
-
 class Error:
 	def __init__(self, pos_start, pos_end, error_name, details):
 		self.pos_start = pos_start
 		self.pos_end = pos_end
 		self.error_name = error_name
 		self.details = details
-	
+
 	def as_string(self):
 		result  = f'{self.error_name}: {self.details}\n'
 		result += f'File {self.pos_start.fn}, line {self.pos_start.ln + 1}'
@@ -58,7 +57,6 @@ class RTError(Error):
 
 		return 'Traceback: \n' + result
 
-
 class Coordinates:
 	def __init__(self, idx, ln, col, fn, ftxt):
 		self.idx = idx
@@ -80,7 +78,8 @@ class Coordinates:
 	def copy(self):
 		return Coordinates(self.idx, self.ln, self.col, self.fn, self.ftxt)
 
-#Tokens
+# tokens
+
 ttint				= 'Integer'
 ttfloat    	= 'Float'
 ttstring			= 'String'
@@ -106,7 +105,9 @@ ttcomma			= 'Comma'
 ttarrow			= 'Arrow'
 ttnewline		= 'Newline'
 tteof				= 'EOF'
-#Keywords
+
+# keywords
+
 KEYWORDS = [
 	'Var',
 	'And',
@@ -142,11 +143,12 @@ class Token:
 
 	def matches(self, type_, value):
 		return self.type == type_ and self.value == value
-	
+
 	def __repr__(self):
 		return f'{self.type}:{self.value}' if self.value else f'{self.type}'
 
-#Lexer
+# Lexer
+
 class Lexer:
 	def __init__(self, fn, text):
 		self.fn = fn
@@ -154,7 +156,7 @@ class Lexer:
 		self.pos = Coordinates(-1, 0, -1, fn, text)
 		self.current_char = None
 		self.advance()
-	
+
 	def advance(self):
 		self.pos.advance(self.current_char)
 		self.current_char = self.text[self.pos.idx] if self.pos.idx < len(self.text) else None
@@ -163,63 +165,42 @@ class Lexer:
 		tokens = []
 
 		while self.current_char != None:
-			if self.current_char in ' \t':
-				self.advance()
-			elif self.current_char == '~':
-				self.skip_comment()
-			elif self.current_char in ';\n':
-				tokens.append(Token(ttnewline, pos_start=self.pos))
-				self.advance()
-			elif self.current_char in Constants:
-				tokens.append(self.make_number())
-			elif self.current_char in LETTERS:
-				tokens.append(self.make_identifier())
-			elif self.current_char == '"':
-				tokens.append(self.make_string())
-			elif self.current_char == '+':
-				tokens.append(Token(ttaddition, pos_start=self.pos))
-				self.advance()
-			elif self.current_char == '-':
-				tokens.append(self.make_minus_or_arrow())
-			elif self.current_char == '*':
-				tokens.append(Token(ttmultiplication, pos_start=self.pos))
-				self.advance()
-			elif self.current_char == '/':
-				tokens.append(Token(ttdivision, pos_start=self.pos))
-				self.advance()
-			elif self.current_char == '^':
-				tokens.append(Token(ttpower, pos_start=self.pos))
-				self.advance()
-			elif self.current_char == '(':
-				tokens.append(Token(ttleftparenthesis, pos_start=self.pos))
-				self.advance()
-			elif self.current_char == ')':
-				tokens.append(Token(ttrightparenthesis, pos_start=self.pos))
-				self.advance()
-			elif self.current_char == '[':
-				tokens.append(Token(ttleftsqbr, pos_start=self.pos))
-				self.advance()
-			elif self.current_char == ']':
-				tokens.append(Token(ttrightsqbr, pos_start=self.pos))
-				self.advance()
-			elif self.current_char == '!':
-				token, error = self.make_not_equals()
-				if error: return [], error
-				tokens.append(token)
-			elif self.current_char == '=':
-				tokens.append(self.make_equals())
-			elif self.current_char == '<':
-				tokens.append(self.make_less_than())
-			elif self.current_char == '>':
-				tokens.append(self.make_greater_than())
-			elif self.current_char == ',':
-				tokens.append(Token(ttcomma, pos_start=self.pos))
-				self.advance()
-			else:
+			char_met = False
+			for chars, funcs in {
+				' \t': [self.advance()],
+				'~': [self.skip_comment()],
+				';\n': [tokens.append(Token(ttnewline, pos_start=self.pos)), self.advance()],
+				Constants: [tokens.append(self.make_number())],
+				LETTERS: [tokens.append(self.make_identifier())],
+				'"': [tokens.append(self.make_string())],
+				'+': [tokens.append(Token(ttaddition, pos_start=self.pos)), self.advance()],
+				'-': [tokens.append(self.make_minus_or_arrow())],
+				'*': [tokens.append(Token(ttmultiplication, pos_start=self.pos)), self.advance()],
+				'/': [tokens.append(Token(ttdivision, pos_start=self.pos)), self.advance()],
+				'^': [tokens.append(Token(ttpower, pos_start=self.pos)), self.advance()],
+				'(': [tokens.append(Token(ttleftparenthesis, pos_start=self.pos)), self.advance()],
+				')': [tokens.append(Token(ttrightparenthesis, pos_start=self.pos)), self.advance()],
+				'[': [tokens.append(Token(ttleftsqbr, pos_start=self.pos)), self.advance()],
+				']': [tokens.append(Token(ttrightsqbr, pos_start=self.pos)), self.advance()],
+				'!': [],
+				'=': [tokens.append(self.make_equals())],
+				'<': [tokens.append(self.make_less_than())],
+				'>': [tokens.append(self.make_greater_than())],
+				',': [tokens.append(Token(ttcomma, pos_start=self.pos)), self.advance()],
+			}.items():
+				if self.current_char in chars:
+					char_met = True
+					if self.current_char in '!':
+						token, error = self.make_not_equals()
+						if error: return [], error
+						tokens.append(token)
+					for func in funcs:
+						func()
+			if char_met:
 				pos_start = self.pos.copy()
-				char = self.current_char
+				char_out = self.current_char
 				self.advance()
-				return [], IllegalCharError(pos_start, self.pos, f"'{char}'")
+				return [], IllegalCharError(pos_start, self.pos, f"'{char_out}'")
 
 		tokens.append(Token(tteof, pos_start=self.pos))
 		return tokens, None
@@ -297,7 +278,7 @@ class Lexer:
 
 		self.advance()
 		return None, ExpectedCharError(pos_start, self.pos, "'=' (after '!')")
-	
+
 	def make_equals(self):
 		tok_type = tteq
 		pos_start = self.pos.copy()
@@ -339,8 +320,9 @@ class Lexer:
 
 		self.advance()
 
-# Nodes
-class NumberNode:
+# nodes
+
+class number_node:
 	def __init__(self, tok):
 		self.tok = tok
 
@@ -350,7 +332,7 @@ class NumberNode:
 	def __repr__(self):
 		return f'{self.tok}'
 
-class StringNode:
+class string_node:
 	def __init__(self, tok):
 		self.tok = tok
 
@@ -360,21 +342,21 @@ class StringNode:
 	def __repr__(self):
 		return f'{self.tok}'
 
-class ListNode:
+class list_node:
 	def __init__(self, element_nodes, pos_start, pos_end):
 		self.element_nodes = element_nodes
 
 		self.pos_start = pos_start
 		self.pos_end = pos_end
 
-class VarAccessNode:
+class var_access_node:
 	def __init__(self, var_name_tok):
 		self.var_name_tok = var_name_tok
 
 		self.pos_start = self.var_name_tok.pos_start
 		self.pos_end = self.var_name_tok.pos_end
 
-class VarAssignNode:
+class var_assign_node:
 	def __init__(self, var_name_tok, value_node):
 		self.var_name_tok = var_name_tok
 		self.value_node = value_node
@@ -382,7 +364,7 @@ class VarAssignNode:
 		self.pos_start = self.var_name_tok.pos_start
 		self.pos_end = self.value_node.pos_end
 
-class BinOpNode:
+class bin_op_node:
 	def __init__(self, left_node, op_tok, right_node):
 		self.left_node = left_node
 		self.op_tok = op_tok
@@ -394,7 +376,7 @@ class BinOpNode:
 	def __repr__(self):
 		return f'({self.left_node}, {self.op_tok}, {self.right_node})'
 
-class UnaryOpNode:
+class unary_op_node:
 	def __init__(self, op_tok, node):
 		self.op_tok = op_tok
 		self.node = node
@@ -405,7 +387,7 @@ class UnaryOpNode:
 	def __repr__(self):
 		return f'({self.op_tok}, {self.node})'
 
-class IfNode:
+class if_node:
 	def __init__(self, cases, else_case):
 		self.cases = cases
 		self.else_case = else_case
@@ -413,7 +395,7 @@ class IfNode:
 		self.pos_start = self.cases[0][0].pos_start
 		self.pos_end = (self.else_case or self.cases[len(self.cases) - 1])[0].pos_end
 
-class ForNode:
+class for_node:
 	def __init__(self, var_name_tok, start_value_node, end_value_node, step_value_node, body_node, should_return_null):
 		self.var_name_tok = var_name_tok
 		self.start_value_node = start_value_node
@@ -425,7 +407,7 @@ class ForNode:
 		self.pos_start = self.var_name_tok.pos_start
 		self.pos_end = self.body_node.pos_end
 
-class WhileNode:
+class while_node:
 	def __init__(self, condition_node, body_node, should_return_null):
 		self.condition_node = condition_node
 		self.body_node = body_node
@@ -434,7 +416,7 @@ class WhileNode:
 		self.pos_start = self.condition_node.pos_start
 		self.pos_end = self.body_node.pos_end
 
-class FuncDefNode:
+class func_def_node:
 	def __init__(self, var_name_tok, arg_name_toks, body_node, should_auto_return):
 		self.var_name_tok = var_name_tok
 		self.arg_name_toks = arg_name_toks
@@ -450,7 +432,7 @@ class FuncDefNode:
 
 		self.pos_end = self.body_node.pos_end
 
-class CallNode:
+class call_node:
 	def __init__(self, node_to_call, arg_nodes):
 		self.node_to_call = node_to_call
 		self.arg_nodes = arg_nodes
@@ -462,25 +444,25 @@ class CallNode:
 		else:
 			self.pos_end = self.node_to_call.pos_end
 
-class ReturnNode:
+class return_node:
 	def __init__(self, node_to_return, pos_start, pos_end):
 		self.node_to_return = node_to_return
 
 		self.pos_start = pos_start
 		self.pos_end = pos_end
 
-class ContinueNode:
+class continue_node:
 	def __init__(self, pos_start, pos_end):
 		self.pos_start = pos_start
 		self.pos_end = pos_end
 
-class BreakNode:
+class break_node:
 	def __init__(self, pos_start, pos_end):
 		self.pos_start = pos_start
 		self.pos_end = pos_end
-
 
 # ParseResult
+
 class ParseResult:
 	def __init__(self):
 		self.error = None
@@ -514,8 +496,8 @@ class ParseResult:
 			self.error = error
 		return self
 
-
 # Parser
+
 class Parser:
 	def __init__(self, tokens):
 		self.tokens = tokens
@@ -575,7 +557,7 @@ class Parser:
 				continue
 			statements.append(statement)
 
-		return res.success(ListNode(
+		return res.success(list_node(
 			statements,
 			pos_start,
 			self.current_tok.pos_end.copy()
@@ -592,17 +574,17 @@ class Parser:
 			expr = res.try_register(self.expr())
 			if not expr:
 				self.reverse(res.to_reverse_count)
-			return res.success(ReturnNode(expr, pos_start, self.current_tok.pos_start.copy()))
+			return res.success(return_node(expr, pos_start, self.current_tok.pos_start.copy()))
 		
 		if self.current_tok.matches(ttkeyword, 'Continue'):
 			res.register_advancement()
 			self.advance()
-			return res.success(ContinueNode(pos_start, self.current_tok.pos_start.copy()))
+			return res.success(continue_node(pos_start, self.current_tok.pos_start.copy()))
 			
 		if self.current_tok.matches(ttkeyword, 'Break'):
 			res.register_advancement()
 			self.advance()
-			return res.success(BreakNode(pos_start, self.current_tok.pos_start.copy()))
+			return res.success(break_node(pos_start, self.current_tok.pos_start.copy()))
 
 		expr = res.register(self.expr())
 		if res.error:
@@ -650,7 +632,7 @@ class Parser:
 		res.register_advancement()
 		self.advance()
 		expr = res.register(self.expr())
-		return res if res.error else res.success(VarAssignNode(var_name, expr))
+		return res if res.error else res.success(var_assign_node(var_name, expr))
 
 	def comp_expr(self):
 		res = ParseResult()
@@ -673,7 +655,7 @@ class Parser:
 		self.advance()
 
 		node = res.register(self.comp_expr())
-		return res if res.error else res.success(UnaryOpNode(op_tok, node))
+		return res if res.error else res.success(unary_op_node(op_tok, node))
 
 	def arith_expr(self):
 		return self.bin_op(self.term, (ttaddition, ttsubstraction))
@@ -689,7 +671,7 @@ class Parser:
 			res.register_advancement()
 			self.advance()
 			factor = res.register(self.factor())
-			return res if res.error else res.success(UnaryOpNode(tok, factor))
+			return res if res.error else res.success(unary_op_node(tok, factor))
 		return self.power()
 
 	def power(self):
@@ -732,7 +714,7 @@ class Parser:
 
 		res.register_advancement()
 		self.advance()
-		return res.success(CallNode(atom, arg_nodes))
+		return res.success(call_node(atom, arg_nodes))
 
 	def atom(self):
 		res = ParseResult()
@@ -741,17 +723,17 @@ class Parser:
 		if tok.type in (ttint, ttfloat):
 			res.register_advancement()
 			self.advance()
-			return res.success(NumberNode(tok))
+			return res.success(number_node(tok))
 
 		elif tok.type == ttstring:
 			res.register_advancement()
 			self.advance()
-			return res.success(StringNode(tok))
+			return res.success(string_node(tok))
 
 		elif tok.type == ttidentifier:
 			res.register_advancement()
 			self.advance()
-			return res.success(VarAccessNode(tok))
+			return res.success(var_access_node(tok))
 
 		elif tok.type == ttleftparenthesis:
 			return self.advance_registry(res)
@@ -827,7 +809,7 @@ class Parser:
 
 		res.register_advancement()
 		self.advance()
-		return res.success(ListNode(
+		return res.success(list_node(
 			element_nodes,
 			pos_start,
 			self.current_tok.pos_end.copy()
@@ -838,7 +820,7 @@ class Parser:
 		all_cases = res.register(self.if_expr_cases('If'))
 		if res.error: return res
 		cases, else_case = all_cases
-		return res.success(IfNode(cases, else_case))
+		return res.success(if_node(cases, else_case))
 
 	def if_expr_b(self):
 		return self.if_expr_cases('Elif')
@@ -1021,12 +1003,12 @@ class Parser:
 			res.register_advancement()
 			self.advance()
 
-			return res.success(ForNode(var_name, start_value, end_value, step_value, body, True))
+			return res.success(for_node(var_name, start_value, end_value, step_value, body, True))
 		
 		body = res.register(self.statement())
 		if res.error: return res
 
-		return res.success(ForNode(var_name, start_value, end_value, step_value, body, False))
+		return res.success(for_node(var_name, start_value, end_value, step_value, body, False))
 
 	def while_expr(self):
 		res = ParseResult()
@@ -1055,7 +1037,7 @@ class Parser:
 		if self.current_tok.type == ttnewline:
 			return self.advance_register(res, condition)
 		body = res.register(self.statement())
-		return res if res.error else res.success(WhileNode(condition, body, False))
+		return res if res.error else res.success(while_node(condition, body, False))
 
 	def advance_register(self, res, condition):
 		res.register_advancement()
@@ -1073,7 +1055,7 @@ class Parser:
 		res.register_advancement()
 		self.advance()
 
-		return res.success(WhileNode(condition, body, True))
+		return res.success(while_node(condition, body, True))
 
 	def func_def(self):
 		res = ParseResult()
@@ -1143,7 +1125,7 @@ class Parser:
 			body = res.register(self.expr())
 			if res.error: return res
 
-			return res.success(FuncDefNode(
+			return res.success(func_def_node(
 				var_name_tok,
 				arg_name_toks,
 				body,
@@ -1171,7 +1153,7 @@ class Parser:
 		res.register_advancement()
 		self.advance()
 
-		return res.success(FuncDefNode(
+		return res.success(func_def_node(
 			var_name_tok,
 			arg_name_toks,
 			body,
@@ -1197,12 +1179,11 @@ class Parser:
 			self.advance()
 			right = res.register(func_b())
 			if res.error: return res
-			left = BinOpNode(left, op_tok, right)
+			left = bin_op_node(left, op_tok, right)
 
 		return res.success(left)
 
-
-#RuntimeResult
+# runtime result
 
 class RTResult:
 	def __init__(self):
@@ -1231,7 +1212,7 @@ class RTResult:
 		self.reset()
 		self.func_return_value = value
 		return self
-	
+
 	def success_continue(self):
 		self.reset()
 		self.loop_should_continue = True
@@ -1254,8 +1235,9 @@ class RTResult:
 			self.loop_should_continue or
 			self.loop_should_break
 		)
-	
-#Values
+
+# values
+
 class Value:
 	def __init__(self):
 		self.set_pos()
@@ -1432,7 +1414,7 @@ class Number(Value):
 
 	def __str__(self):
 		return str(self.value)
-	
+
 	def __repr__(self):
 		return str(self.value)
 
@@ -1515,7 +1497,7 @@ class List(Value):
 				'Element at this index could not be retrieved from list because index is out of bounds.',
 				self.context
 			)
-	
+
 	def copy(self):
 		copy = List(self.elements)
 		copy.set_pos(self.pos_start, self.pos_end)
@@ -1617,7 +1599,7 @@ class BuiltInFunction(BaseFunction):
 
 		return_value = res.register(method(exec_ctx))
 		return res if res.should_return() else res.success(return_value)
-	
+
 	def no_visit_method(self, node, context):
 		raise AetherScriptError.call(f'No execute_{self.name} method defined')
 
@@ -1630,17 +1612,15 @@ class BuiltInFunction(BaseFunction):
 	def __repr__(self):
 		return f"<built-in function {self.name}>"
 
-
-
 	def execute_print(self, exec_ctx):
 		print(exec_ctx.symbol_table.get('value'))
 		return RTResult().success(Number.null)
 	execute_print.arg_names = ['value']
-	
+
 	def execute_print_ret(self, exec_ctx):
 		return RTResult().success(String(str(exec_ctx.symbol_table.get('value'))))
 	execute_print_ret.arg_names = ['value']
-	
+
 	def execute_input(self, exec_ctx):
 		text = input()
 		return RTResult().success(String(text))
@@ -1727,24 +1707,24 @@ class BuiltInFunction(BaseFunction):
 	execute_pop.arg_names = ["list", "index"]
 
 	def execute_extend(self, exec_ctx):
-		listA = exec_ctx.symbol_table.get("listA")
-		listB = exec_ctx.symbol_table.get("listB")
+		list_a = exec_ctx.symbol_table.get("listA")
+		list_b = exec_ctx.symbol_table.get("listB")
 
-		if not isinstance(listA, List):
+		if not isinstance(list_a, List):
 			return RTResult().failure(RTError(
 				self.pos_start, self.pos_end,
 				"First argument must be list",
 				exec_ctx
 			))
 
-		if not isinstance(listB, List):
+		if not isinstance(list_b, List):
 			return RTResult().failure(RTError(
 				self.pos_start, self.pos_end,
 				"Second argument must be list",
 				exec_ctx
 			))
 
-		listA.elements.extend(listB.elements)
+		list_a.elements.extend(list_b.elements)
 		return RTResult().success(Number.null)
 	execute_extend.arg_names = ["listA", "listB"]
 
@@ -1848,17 +1828,17 @@ class Interpreter:
 	def no_visit_method(self, node, context):
 		raise AetherScriptError.call(f'No visit_{type(node).__name__} method defined')
 
-	def visit_NumberNode(self, node, context):
+	def visit_number_node(self, node, context):
 		return RTResult().success(
 			Number(node.tok.value).set_context(context).set_pos(node.pos_start, node.pos_end)
 		)
 
-	def visit_StringNode(self, node, context):
+	def visit_string_node(self, node, context):
 		return RTResult().success(
 			String(node.tok.value).set_context(context).set_pos(node.pos_start, node.pos_end)
 		)
 
-	def visit_ListNode(self, node, context):
+	def visit_list_node(self, node, context):
 		res = RTResult()
 		elements = []
 
@@ -1870,7 +1850,7 @@ class Interpreter:
 			List(elements).set_context(context).set_pos(node.pos_start, node.pos_end)
 		)
 
-	def visit_VarAccessNode(self, node, context):
+	def visit_var_access_node(self, node, context):
 		res = RTResult()
 		var_name = node.var_name_tok.value
 		value = context.symbol_table.get(var_name)
@@ -1885,7 +1865,7 @@ class Interpreter:
 		value = value.copy().set_pos(node.pos_start, node.pos_end).set_context(context)
 		return res.success(value)
 
-	def visit_VarAssignNode(self, node, context):
+	def visit_var_assign_node(self, node, context):
 		res = RTResult()
 		var_name = node.var_name_tok.value
 		value = res.register(self.visit(node.value_node, context))
@@ -1894,7 +1874,7 @@ class Interpreter:
 		context.symbol_table.set(var_name, value)
 		return res.success(value)
 
-	def visit_BinOpNode(self, node, context):
+	def visit_bin_op_node(self, node, context):
 		res = RTResult()
 		left = res.register(self.visit(node.left_node, context))
 		if res.should_return(): return res
@@ -1933,7 +1913,7 @@ class Interpreter:
 		else:
 			return res.success(result.set_pos(node.pos_start, node.pos_end))
 
-	def visit_UnaryOpNode(self, node, context):
+	def visit_unary_op_node(self, node, context):
 		res = RTResult()
 		number = res.register(self.visit(node.node, context))
 		if res.should_return(): return res
@@ -1950,7 +1930,7 @@ class Interpreter:
 		else:
 			return res.success(number.set_pos(node.pos_start, node.pos_end))
 
-	def visit_IfNode(self, node, context):
+	def visit_if_node(self, node, context):
 		res = RTResult()
 
 		for condition, expr, should_return_null in node.cases:
@@ -1973,7 +1953,7 @@ class Interpreter:
 		if res.should_return(): return res
 		return res.success(Number.null if should_return_null else expr_value)
 
-	def visit_ForNode(self, node, context):
+	def visit_for_node(self, node, context):
 		res = RTResult()
 		elements = []
 
@@ -2016,7 +1996,7 @@ class Interpreter:
 			List(elements).set_context(context).set_pos(node.pos_start, node.pos_end)
 		)
 
-	def visit_WhileNode(self, node, context):
+	def visit_while_node(self, node, context):
 		res = RTResult()
 		elements = []
 
@@ -2043,7 +2023,7 @@ class Interpreter:
 			List(elements).set_context(context).set_pos(node.pos_start, node.pos_end)
 		)
 
-	def visit_FuncDefNode(self, node, context):
+	def visit_func_def_node(self, node, context):
 		res = RTResult()
 
 		func_name = node.var_name_tok.value if node.var_name_tok else None
@@ -2056,7 +2036,7 @@ class Interpreter:
 
 		return res.success(func_value)
 
-	def visit_CallNode(self, node, context):
+	def visit_call_node(self, node, context):
 		res = RTResult()
 		args = []
 
@@ -2073,7 +2053,7 @@ class Interpreter:
 		return_value = return_value.copy().set_pos(node.pos_start, node.pos_end).set_context(context)
 		return res.success(return_value)
 
-	def visit_ReturnNode(self, node, context):
+	def visit_return_node(self, node, context):
 		res = RTResult()
 
 		if node.node_to_return:
@@ -2084,13 +2064,14 @@ class Interpreter:
 		
 		return res.success_return(value)
 
-	def visit_ContinueNode(self):
+	def visit_continue_node(self):
 		return RTResult().success_continue()
 
-	def visit_BreakNode(self):
+	def visit_break_node(self):
 		return RTResult().success_break()
 
-#
+# set global symbols
+
 global_symbol_table = SymbolTable()
 global_symbol_table.set("Null", Number.null)
 global_symbol_table.set("False", Number.false)
@@ -2112,12 +2093,14 @@ global_symbol_table.set("Extend", BuiltInFunction.extend)
 global_symbol_table.set("Len", BuiltInFunction.len)
 global_symbol_table.set("Run", BuiltInFunction.run)
 
+# run
+
 def run(fn, text):
 
 	lexer = Lexer(fn, text)
 	tokens, error = lexer.make_tokens()
 	if error: return None, error
-	
+
 	parser = Parser(tokens)
 	ast = parser.parse()
 	if ast.error: return None, ast.error
