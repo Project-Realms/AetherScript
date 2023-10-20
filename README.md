@@ -5,7 +5,7 @@
 
 ![AetherScript](https://raw.githubusercontent.com/ProjectDragonRealms/AetherScript/main/branding/banner.svg)
 
-[![publish status](https://github.com/ProjectDragonRealms/AetherScript/actions/workflows/python-publish.yml/badge.svg)](https://github.com/ProjectDragonRealms/AetherScript/actions/workflows/python-publish.yml)
+![[publish status](https://github.com/ProjectDragonRealms/AetherScript/actions/workflows/python-publish.yml)](https://github.com/ProjectDragonRealms/AetherScript/actions/workflows/python-publish.yml/badge.svg)
 ![[latest release](https://github.com/ProjectDragonRealms/AetherScript/releases/latest)](https://img.shields.io/github/v/release/ProjectDragonRealms/AetherScript)
 
 ### Enhance Your Coding Experience
@@ -42,7 +42,7 @@ $ py EmberLaunch.py
 
 ### `AetherX` library
 
-Additionally, you can use AetherScript in Python with the `AetherX` library.
+Additionally, you can use AetherScript in your own Python projects with the `AetherX` library.
 
 ```sh
 $ py -m pip install --upgrade AetherX
@@ -52,6 +52,9 @@ $ py
 ```py
 >>> from AetherX import AES
 >>> AES.run()
+```
+
+```aes
 <AetherScript> _
 ```
 
@@ -89,7 +92,7 @@ Once AetherScript is activated, the `<AetherScript>` prompt appears. This is the
 
 ### Example program
 
-```
+```aes
 Write("Hello World")
 
 ~ find the circumference of a circle with a radius of using the formula "C = 2πr"
@@ -101,7 +104,7 @@ Write(2*6.42*24/12*2+100)
 
 This program will output the following:
 
-```
+```aes
 <AetherScript> Run("example.aes")
 Hello World
 62.83185307179586
