@@ -1,6 +1,4 @@
-import os
-import math
-import string
+import contextlib, os, math, string
 
 
 # tokens
@@ -1295,18 +1293,22 @@ def create_instance(fn, text):
 
 def run():
 	while True:
-		text = input('<AetherScript> ')
-		if text.strip() == "":
-			continue
-		result, error = create_instance('<stdin>', text)
+		try:
+			text = input('\n<AetherScript> ')
+			if text.strip() == "":
+				continue
+			result, error = create_instance('<stdin>', text)
 
-		if error:
-			print(error.as_string())
-		elif result:
-			if len(result.elements) == 1:
-				print(repr(result.elements[0]))
-			else:
-				print(repr(result))
+			if error:
+				print(error.as_string())
+			elif result:
+				if len(result.elements) == 1:
+					print(repr(result.elements[0]))
+				else:
+					print(repr(result))
+
+		except KeyboardInterrupt:
+			print('<KeyboardInterrupt>')
 
 
 # output methods
@@ -1392,8 +1394,7 @@ class RTError(Error):
 		ctx = self.context
 
 		while ctx:
-			result = f'  File {pos.fn}, line {
-				str(pos.ln + 1)}, in {ctx.display_name}\n{result}'
+			result = f'  File {pos.fn}, line {str(pos.ln + 1)}, in {ctx.display_name}\n{result}'
 			pos = ctx.parent_entry_pos
 			ctx = ctx.parent
 
@@ -1751,7 +1752,7 @@ class Function(BaseFunction):
 
 	def copy(self):
 		copy = Function(self.name, self.body_node,
-		                self.arg_names, self.should_auto_return)
+						self.arg_names, self.should_auto_return)
 		copy.set_context(self.context)
 		copy.set_pos(self.pos_start, self.pos_end)
 		return copy

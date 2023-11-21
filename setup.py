@@ -1,4 +1,4 @@
-version = '0.4'
+version = '0.5.0'
 
 from setuptools import setup
 
@@ -17,7 +17,11 @@ setup(
 	setup_requires=['pytest_runner'],
 	scripts=[],
 	tests_require=['pytest'],
-	entry_points={},
+	entry_points={
+		'console_scripts': [
+			'AetherX=AetherX:run'
+		]
+	},
 	zip_safe=True,
 	classifiers=[
 		'Programming Language :: Python',
