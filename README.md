@@ -23,7 +23,7 @@ AetherScript is a dynamic and user-friendly programming language based on Python
 1. Open a terminal in your desired folder, then clone this repository.
 
 ```sh
-$ git clone https://github.com/ProjectDragonRealms/AetherScript.git
+$ git clone https://github.com/Project-Realms/AetherScript.git
 ```
 
 2. Navigate to the `AetherX` folder.
